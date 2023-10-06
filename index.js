@@ -8,7 +8,7 @@ const TOKEN = "6398218428:AAH-3gYd7AF1zSIOJ7WxZcEl2NmXX7KiEF0"; // Ortam değiş
 const bot = new TelegramBot(TOKEN);
 
 // Telegram'dan gelen POST taleplerini işlemek için bir endpoint
-app.post("/" + TOKEN, (req, res) => {
+app.post("/api/telegram" + TOKEN, (req, res) => {
   bot.processUpdate(req.body);
   res.sendStatus(200);
 });
@@ -38,10 +38,14 @@ bot.onText(/\/start/, (msg) => {
   );
 });
 
+const externalUrl = "https://naughty-pig-top-coat.cyclic.app";
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  console.log(
+    "Bot server started in the webhook mode",
+    `${externalUrl}/${TOKEN}`
+  );
 });
 
 // Sunucunuzun dışa açık adresini burada belirtmelisiniz.
-const externalUrl = "https://naughty-pig-top-coat.cyclic.app";
 bot.setWebHook(`${externalUrl}/${TOKEN}`);
