@@ -43,5 +43,5 @@ app.listen(PORT, () => {
 });
 
 // Sunucunuzun dışa açık adresini burada belirtmelisiniz.
-const externalUrl = "https://naughty-pig-top-coat.cyclic.app/";
+const externalUrl = "https://naughty-pig-top-coat.cyclic.app";
 bot.setWebHook(`${externalUrl}/${TOKEN}`);
