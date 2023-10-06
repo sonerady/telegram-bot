@@ -1,10 +1,17 @@
 const TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-const token = "6398218428:AAH-3gYd7AF1zSIOJ7WxZcEl2NmXX7KiEF0";
-const bot = new TelegramBot(token, { polling: true });
+const PORT = process.env.PORT || 5000;
+const TOKEN = "6398218428:AAH-3gYd7AF1zSIOJ7WxZcEl2NmXX7KiEF0"; // Ortam değişkeni olarak token'i sakla
+
+const bot = new TelegramBot(TOKEN);
+
+// Telegram'dan gelen POST taleplerini işlemek için bir endpoint
+app.post("/" + TOKEN, (req, res) => {
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
+});
 
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
@@ -31,10 +38,10 @@ bot.onText(/\/start/, (msg) => {
   );
 });
 
-app.get("/", (req, res) => {
-  res.send("Bot is running...");
-});
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// Sunucunuzun dışa açık adresini burada belirtmelisiniz.
+const externalUrl = "https://naughty-pig-top-coat.cyclic.app/";
+bot.setWebHook(`${externalUrl}/${TOKEN}`);
