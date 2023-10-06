@@ -1,0 +1,18 @@
+# Node.js related
+node_modules/
+npm-debug.log
+
+# Environment variables
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS related
+.DS_Store
+Thumbs.db
