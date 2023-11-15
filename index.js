@@ -9,7 +9,7 @@ const bot = new TelegramBot(token, { polling: true });
 bot.onText(/\/start/, (msg) => {
   const userId = msg.from.id;
   const chatId = msg.chat.id;
-
+  
   bot.sendMessage(
     chatId,
     "*Let's get started 🤖*\n\nHow about a glimpse into the AI realm? Discover how it will revolutionize your life!",
