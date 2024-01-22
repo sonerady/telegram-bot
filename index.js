@@ -1,15 +1,15 @@
 const TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.port || 8080;
 
-const token = "6007696777:AAH0iVdHOpbr28RoD4PayhZdEsR0ZFQpc8A";
+const token = "6733698418:AAFIT5ewZPDGXVoAuDmnJUqnmjd6DkqKIjc";
 const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/start/, (msg) => {
   const userId = msg.from.id;
   const chatId = msg.chat.id;
-  
+
   bot.sendMessage(
     chatId,
     "*Let's get started 🤖*\n\nHow about a glimpse into the AI realm? Discover how it will revolutionize your life!",
@@ -31,20 +31,6 @@ bot.onText(/\/start/, (msg) => {
     }
   );
 });
-
-// bot.onText(/\/login/, async (msg) => {
-//   const chatId = msg.chat.id;
-//   const userId = msg.from.id; // Kullanıcı ID'sini al
-
-//   try {
-//     // API'ye POST isteği gönder
-//     bot.sendMessage(chatId, `Here is your login link:) ${userId}`, {
-//       parse_mode: "Markdown",
-//     });
-//   } catch (error) {
-//     bot.sendMessage(chatId, "Error occurred during login. Please try again.");
-//   }
-// });
 
 app.get("/", (req, res) => {
   res.send("Bot is running...");
