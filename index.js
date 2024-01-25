@@ -21,7 +21,7 @@ bot.onText(/\/start/, (msg) => {
             {
               text: "Try it now!",
               web_app: {
-                url: `https://telegram-app-virid.vercel.app/?telegram_uid=${userId}&telegram_chat_id=${chatId}&telegram_first_name=${msg.from.first_name}&telegram_last_name=${msg.from.last_name}&telegram_username=${msg.from.username}&telegram_photo=${msg.from.photo}`,
+                url: `https://ton.hypergpt.ai/?telegram_uid=${userId}&telegram_chat_id=${chatId}&telegram_first_name=${msg.from.first_name}&telegram_last_name=${msg.from.last_name}&telegram_username=${msg.from.username}&telegram_photo=${msg.from.photo}`,
                 show: true,
               },
             },

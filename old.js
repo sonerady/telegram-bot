@@ -20,7 +20,7 @@ bot.onText(/\/start/, (msg) => {
             {
               text: "Try it now!",
               web_app: {
-                url: "https://telegram-k56byvvqc-soners-projects.vercel.app/",
+                url: "http://ton.hypergpt.ai",
                 show: true,
               },
             },
